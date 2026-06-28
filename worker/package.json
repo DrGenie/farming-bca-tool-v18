@@ -1,0 +1,14 @@
+{
+  "name": "soil-bca-chat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cloudflare Worker backend for the SOIL CRC BCA tool AI Analysis Assistant (Gemini, server-side key).",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "secret": "wrangler secret put GEMINI_API_KEY"
+  },
+  "devDependencies": {
+    "wrangler": "^3.80.0"
+  }
+}

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BCA Tool Guide</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="guide-page">
+  <main class="container main-area">
+    <section class="card hero">
+      <div>
+        <div class="hero-badge">Guide</div>
+        <h2>BCA Tool Guide</h2>
+        <p class="lead">This guide explains the purpose of each tab, how the formulas work, what each metric represents, and how to interpret the results. It is written to allow the tool to be used independently, without additional explanation.</p>
+      </div>
+    </section>
+
+    <section class="card prose">
+      <h3>1. What the tool does</h3>
+      <p>The tool compares the financial performance of trial treatments using the direct benefits and direct costs reported in the uploaded worksheet. Yields are converted into annual gross benefits using the grain price specified in the Settings tab. Direct cost components are summed for each treatment row, and future annual benefits and costs are discounted over the analysis period. Results are reported using net present value (NPV), benefit–cost ratio, gross profit margin, return on investment (ROI), and the difference in NPV of treatment relative to the control treatment.</p>
+      <p>The tool is designed to work with the official Excel template. Each treatment must be recorded on a separate row in the BCA Data worksheet. Results are most reliable when treatment names and treatment IDs are entered consistently across all replicate rows.</p>
+    </section>
+
+    <section class="card prose">
+      <h3>2. How each tab works</h3>
+      <p>Introduction gives the purpose of the tool, includes acknowledgements, and outlines the main workflow.</p>
+      <p>Data is where you download the official template, upload the completed workbook, load example data, review validation messages, and enter the project details shown at the beginning of the report. After a workbook is loaded, the tool stays on the Data tab and activates a View results button so users can move to the Results tab only when they are ready.</p>
+      <p>Settings is where you enter the grain price, analysis period, discounting mode, initial discount rate, later discount rate, and switch year. Clicking Apply settings updates the schedule used in the calculations.</p>
+      <p>Results is where you run the analysis, compare a selected treatment with the control or compare two treatments side by side, review the ranking table, and examine the graphs.</p>
+      <p>Sensitivity lets you test alternative discount rates, grain prices, benefit changes, and cost changes for the selected treatment.</p>
+      <p>Report brings together the project details, analysis tables, graphs, and written summary. The report can be downloaded as a Word-compatible document or opened in a PDF-ready layout.</p>
+      <p>Help provides quick answers to common questions.</p>
+    </section>
+
+    <section class="card prose">
+      <h3>3. Data entry rules</h3>
+      <p>Use one row per treatment. Clearly identify the control treatment as the control. Keep treatment IDs and amendment names consistent across replicates for the same treatment. Yield and cost values should be entered as numeric values only. The tool reads cost components directly from the workbook and does not rely on a separately entered total cost value for the analysis.</p>
+      <p>The Report section in the Data tab includes editable fields for the project name, collaborators, funding agency, project summary, and Brief Description of the Methodology of the Project. These details are carried through into the report and can be revised before export.</p>
+    </section>
+
+    <section class="card prose">
+      <h3>4. Cost formula used by the tool</h3>
+      <p>For each treatment row, the tool calculates direct costs internally from the workbook components rather than relying on a pre-filled total cost field. Where available, the component list includes seed cost, cost of amendment per hectare, total labour, total machinery, fertiliser, pesticides, fuel, marketing, repairs and maintenance, support services, electricity, water, insurance services, overheads, interest paid on loans, structure maintenance, and other costs.</p>
+    </section>
+
+    <section class="card prose">
+      <h3>5. Discounting formulas</h3>
+      <p>The tool assumes that annual gross benefits and annual direct costs repeat over the selected analysis period. Under constant discounting, the same annual rate is applied in every year. Under increasing-rate and decreasing-rate schedules, the initial rate applies up to the switch year, after which the later rate comes into effect.</p>
+    </section>
+
+    <section class="card prose">
+      <h3>6. Economic Indicators and Interpretation</h3>
+      <h4>Benefit–Cost Ratio (BCR)</h4>
+      <p>The benefit–cost ratio measures how much benefit is generated per unit of cost, in present value terms. It is useful for assessing economic efficiency of treatments or practices.</p>
+      <p>Interpretation:</p>
+      <p>- BCR &gt; 1: Benefits exceed costs, so the investment is economically worthwhile<br>
+      - BCR = 1: Benefits equal costs, so the treatment breaks even<br>
+      - BCR &lt; 1: Costs exceed benefits, so the treatment is not economically justified</p>
+      <p>A BCR of 1.5 means that for every $1 of cost, $1.50 of benefit is generated.</p>
+
+      <h4>Gross Profit Margin</h4>
+      <p>Gross profit margin measures the surplus remaining after covering direct variable costs, relative to total revenue. This measure helps in comparing operational performance across treatments and understanding cost sensitivity to yield or price changes.</p>
+      <p>Interpretation:</p>
+      <p>It shows how much of each dollar of revenue is retained after paying for inputs such as seed, fertiliser, chemicals, and operations.<br>
+      - Higher margin: Greater operating efficiency and cost control<br>
+      - Lower margin: Costs consume a large share of revenue</p>
+      <p>For example, a gross profit margin of 40% means that $0.40 of every $1 earned remains after direct costs.</p>
+
+      <h4>Return on Investment (ROI)</h4>
+      <p>ROI measures the net gain earned relative to the costs incurred. It helps in comparing profitability between treatments or alternative practices.</p>
+      <p>Interpretation:</p>
+      <p>It answers the question: How much profit is made per dollar invested?<br>
+      - ROI &gt; 0: Investment generates a gain<br>
+      - Higher ROI: More profitable use of capital</p>
+      <p>For example, an ROI of 25% means that every $1 invested returns $1.25 in total.</p>
+    </section>
+
+    <section class="card prose">
+      <h3>7. Worked examples</h3>
+      <p><strong>Worked Example 1: Annual gross benefit and direct cost</strong></p>
+      <p>Suppose one treatment has an average yield of 3.20 tonnes per hectare and the grain price entered in the Settings tab is $500 per tonne. The annual gross benefit is calculated as 3.20 × 500 = $1,600 per hectare.</p>
+      <p>Suppose the same treatment row contains the following direct cost components per hectare: seed $85, cost of amendment $120, total labour $60, total machinery $140, fertiliser $95, pesticides $35, fuel $22, marketing $18, repairs and maintenance $10, support services $8, electricity $6, water $12, insurance services $4, overheads $20, interest paid on loans $5, structure maintenance $3, and other costs $7. The internally summed direct cost is therefore $650 per hectare.</p>
+      <p><strong>Worked Example 2: Present value and NPV</strong></p>
+      <p>If the analysis period is 10 years and the discount rate is constant at 5%, the present value factor is the sum of 1/(1.05)^t from year 1 to year 10, which is approximately 7.7217.</p>
+      <p>Using the values above, present value of benefits = 1,600 × 7.7217 = $12,354.72 per hectare. Present value of costs = 650 × 7.7217 = $5,019.11 per hectare. Net present value = 12,354.72 − 5,019.11 = $7,335.61 per hectare.</p>
+      <p><strong>Worked Example 3: BCR, gross profit margin, ROI, and comparison with control</strong></p>
+      <p>Using the same treatment, benefit–cost ratio = 12,354.72 / 5,019.11 = 2.46. Gross profit margin = (12,354.72 − 5,019.11) / 12,354.72 × 100 = 59.4%. Return on investment = (12,354.72 − 5,019.11) / 5,019.11 × 100 = 146.2%.</p>
+      <p>If the control treatment has an NPV of $5,400 per hectare, then the difference in NPV of treatment relative to the control is 7,335.61 − 5,400 = $1,935.61 per hectare.</p>
+      <p>These worked examples are illustrative. The tool performs the same logic automatically using the uploaded workbook and the settings selected by the user.</p>
+    </section>
+
+    <section class="card prose">
+      <h3>8. How to read the ranking table</h3>
+      <p>The ranking table orders treatments from the highest NPV to the lowest NPV. The treatment at the top of the table therefore represents the option with the strongest discounted net return under the assumptions currently specified in the tool. The table also reports average yield, average direct costs, benefit–cost ratio, gross profit margin, return on investment, and the difference in NPV of treatment relative to the control. This allows users to assess whether a treatment performs well due to higher yields, lower costs, or a combination of both.</p>
+    </section>
+
+    <section class="card prose">
+      <h3>9. How to read the graphs</h3>
+      <p>Figure 1 shows the extent to which discounted benefits exceed discounted costs. Figure 2 shows the overall discounted net value of each treatment. Figure 3 indicates how much better or worse each treatment performs relative to the control treatment. Figure 4 shows the proportion of discounted benefits remaining after costs, while Figure 5 shows net gains relative to discounted costs. Taken together, these graphs allow users to compare treatments quickly and from multiple economic perspectives.</p>
+    </section>
+
+    <section class="card prose">
+      <h3>10. Sensitivity Analysis</h3>
+      <p>The Sensitivity tab allows you to test alternative assumptions without changing the original uploaded workbook. You can vary the discount rate, grain price, benefit level, and cost level to explore how results respond to different scenarios. This helps answer questions such as: What happens if prices fall? What if costs increase? What if the trial benefit is smaller than expected? The sensitivity table recalculates key outputs for each scenario for the selected treatment, allowing you to assess the robustness of the results.</p>
+    </section>
+
+    <section class="card prose">
+      <h3>11. Reporting Workflow</h3>
+      <p>The Report tab brings together two main components. Part A reproduces the project information entered in the Data tab. Part B combines the ranking table, sensitivity results, graphs, and a narrative summary of the analysis.</p>
+      <p>If you have access to ChatGPT or Copilot, the tool prepares the complete prompt, copies it to the clipboard, and opens the selected service in a new window. Paste the prompt into the new window, generate the narrative text there, and then paste it back into the tool so it becomes part of the report. The prompt is copied rather than passed through a long web link, so the project descriptions, ranking table, sensitivity results and settings are retained.</p>
+      <p>The Word report option creates a Word compatible document with embedded chart images with consistent labels, page-fitted tables, standard professional font settings, and a generated date/time stamp. The PDF ready option opens a print friendly version of the report that can be saved as a PDF using the browser’s print dialog.</p>
+    </section>
+
+    <section class="card prose">
+      <h3>12. Common problems and what to do</h3>
+      <p>If the workbook cannot be read, ensure you are using the official template and that the file was saved before uploading.</p>
+      <p>If results are blank, check that yield values and cost fields contain numeric entries and that a control treatment is included.</p>
+      <p>If the ranking appears unexpected, review the grain price, analysis period, and discounting settings.</p>
+      <p>If the report preview is blank, make sure the analysis has been run and then refresh the report preview.</p>
+      <p>The Results tab shows an "Active data source" line and a banner whenever results are out of date. If you load a new workbook or change a setting after running, the previous results are cleared or marked stale: click "Run Benefit-Cost Analysis" again to recalculate before comparing, reporting or exporting. The tool never mixes the sample data with an uploaded workbook, and if an upload cannot be read it tells you that no dataset is active rather than silently keeping the old one.</p>
+    </section>
+    <section class="card prose">
+      <h3>13. AI Analysis Assistant</h3>
+      <p>The tool includes an optional AI Analysis Assistant, reached from the button in the lower corner of the screen. It reads the current analysis (the treatment ranking, the metrics, the settings, and the project information) and can explain results in plain language, compare treatments with the control, draft report narrative text, explain what NPV, BCR, gross profit margin and ROI mean, and suggest sensitivity checks.</p>
+      <p>The assistant is domain-grounded rather than fine-tuned. It is guided by a fixed set of instructions and a benefit-cost knowledge base, and it uses only the live values currently shown in the tool. It does not invent numbers and it does not learn from your questions. Its answers are interpretation support, not financial or agronomic advice, and they should be reviewed before use. When you add an answer to the report, it is clearly marked as AI-generated text for review. Do not enter personal or confidential information, because the question and the current results are sent to a third party AI service to generate the response. If the assistant is unavailable, every calculation and report feature in the tool continues to work normally.</p>
+    </section>
+  </main>
+</body>
+</html>
